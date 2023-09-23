@@ -265,6 +265,7 @@ function errorLog(){
         31) id="${message_file_no_read_perms[${language}]}";;
         32) id="${message_IPv4_APIPA[${language}]}";;
         33) id="${message_encrypt_not_supported[${language}]}";;
+        34) id="${message_wifi_disabled[${language}]}";;
         *) id="INTERNAL ERROR.";;
     esac
 
@@ -280,6 +281,12 @@ function format_message_translate(){
 }
 
 function translations_handler(){
+
+    declare -gA message_wifi_disabled=(
+        ["en"]="Wi-Fi is disabled"
+        ["es"]="El Wi-Fi está desactivado"
+        ["ca"]="El Wi-Fi està desactivat"
+    )
 
     declare -gA message_encrypt_not_supported=(
         ["en"]="Encryption not suported"
@@ -1163,7 +1170,7 @@ function detect_screen_resolution(){
         errorLog 0
         exit 1
     else
-        #banner
+        banner
         autodetect_language
         echo -e "\n${Blanco}${minimum_resolution[${language}]}${reset}${CAzul} ${resolution_y}x${resolution_x}${reset}"
     fi
@@ -2280,6 +2287,18 @@ function test_gateway(){
     return 1
 }
 
+
+function check_radio_wifi(){
+    if command -v nmcli >/dev/null 2>&1;then
+        if nmcli radio wifi | grep -q "enabled";then
+            return 0
+        else
+            errorLog 34
+            return 1
+        fi
+    fi
+}
+
 function check_traceroute_hosts(){
 
     if ! command -v traceroute >/dev/null 2>&1;then
@@ -3051,9 +3070,9 @@ while true;do
             
             check_nsswitch
             check_if_duplicate_ip
-            # if [ "${mode}" == "Wi-Fi" ];then
-            #     check_radio_wifi
-            # fi
+            if [ "${mode}" == "Wi-Fi" ];then
+                check_radio_wifi
+            fi
         ;;
         3)
             detect_network_service
