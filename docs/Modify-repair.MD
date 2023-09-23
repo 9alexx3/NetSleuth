@@ -24,7 +24,7 @@ En caso de que sea Wi-Fi, se escaneará todas las redes disponibles que encuentr
 
 Y automáticamente se establece la nueva conexión.
 
-![](/images/Wifi-Display.png)
+![](/images/Wifi-Display2.png)
 
 
 > [!NOTE]

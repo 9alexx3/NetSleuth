@@ -1014,9 +1014,9 @@ function translations_handler(){
     )
 
     declare -gA message_type_password=(
-        ["en"]="Enter the password for the network %s with BSSID '%s'${punto}\n${Blanco}Password will not be displayed while typing"
-        ["es"]="Introduzca la contraseña de la red %s cuya BSSID es '%s'${punto}\n${Blanco}La contraseña no se mostrará mientras se escribe"
-        ["ca"]="Introduïsca la contrasenya de la xarxa %s que la seua BSSID és '%s'${punto}\n${Blanco}La contrasenya no es mostrarà mentre s'escriu"
+        ["en"]="Enter the password for the network ${reset}${CVerde}%s${reset}${Blanco} with BSSID ${reset}${CRojo}'%s'${punto}\n${Blanco}Password will not be displayed while typing"
+        ["es"]="Introduzca la contraseña de la red ${reset}${CVerde}%s${reset}${Blanco} cuya BSSID es ${reset}${CRojo}'%s'${punto}${punto}\n${Blanco}La contraseña no se mostrará mientras se escribe"
+        ["ca"]="Introduïsca la contrasenya de la xarxa ${reset}${CVerde}%s${reset}${Blanco} que la seua BSSID és ${reset}${CRojo}'%s'${punto}${punto}\n${Blanco}La contrasenya no es mostrarà mentre s'escriu"
     )
 }
 translations_handler
@@ -2573,6 +2573,7 @@ function check_GUI(){
 function type_password(){
     echo -e "\n\n${Blanco}$(format_message_translate "${message_type_password[${language}]}" "${1}" "${2}")${punto}"
     read -rsp " ·> " passwd
+    echo ""
 }
 
 function get_wifi_nmcli(){
@@ -2683,7 +2684,6 @@ function create_connection_nmcli(){
                         encryption="${encryption} 802-11-wireless-security.wep-key1 ${passwd}"
                         ;;
                     WPA*)
-                        echo -e "\nEjecutando como WPA*\n "
                         encryption="802-11-wireless-security.key-mgmt wpa-psk"
                         encryption="${encryption} 802-11-wireless-security.psk ${passwd}"
                         ;;
