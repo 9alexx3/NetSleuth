@@ -15,14 +15,20 @@ En caso de que no hubiera ninguna conexión activa, se seleccionaría una de las
 También se puede crear una nueva conexión; dependiendo si la conexión es estática (fija) o automática (dhcp), se realizarán más o menos preguntas.
 
 
-> [!NOTE]
-> Cada paso cuenta con una verificación ya sea de direcciones IPv4, como servidores DNS y en caso de texto (como nombre de conexión), una pregunta de confirmación para garantizar la autorización del usuario.
-
-
-
 ![Crear nueva conexión](/images/Create-Connection-NMCLI2.png)
 
 
+En caso de que sea Wi-Fi, se escaneará todas las redes disponibles que encuentre la tarjeta inalámbrica seleccionada. Luego, se introducirá un número correspondiente a la lista cuyo objetivo es marcar la red Wi-Fi a la que se va a conectar.
+
+![](/images/Wifi-Display.png)
+
+Y automáticamente se establece la nueva conexión.
+
+![](/images/Wifi-Display.png)
+
+
+> [!NOTE]
+> Cada paso cuenta con una verificación ya sea de direcciones IPv4, como servidores DNS y en caso de texto (como nombre de conexión), se realizará una pregunta de confirmación para garantizar la autorización del usuario.
 
 
 # Reparación
