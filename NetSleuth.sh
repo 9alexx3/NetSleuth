@@ -1130,7 +1130,7 @@ function check_distros(){
 
     # FUNCIÓN NO TERMINADA
 
-    declare distros=("Kali Linux" "Ubuntu" "Parrot")
+    declare distros=("Kali" "Ubuntu" "Parrot")
     
     # if [ "${OSTYPE}" != "linux-gnu" ];then
     #     echo -e "${distros_no_testing[${language}]}"
