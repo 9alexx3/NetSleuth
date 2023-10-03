@@ -3,10 +3,14 @@
 # Title........: NetSleuth.sh
 # Description..: This is a multi-use bash script for Linux systems to change/repair/show networks configuration.
 # Author.......: 9alexx3 aka variant
-# Version......: 0.00 -> Alpha
+# Version......: 0.01 -> Alpha 1
 # Usage........: sudo bash NetSleuth.sh
 # Bash Version.: 4.2 or later
 
+# !CHANGELOG:
+    # *Bugs:
+        # ? Detection distribution
+        # ? ? 
 #SHELLCHECK
 
 # FORMAT CHAT
@@ -1126,6 +1130,7 @@ function check_root_permissions(){
 
 }
 
+language="es"
 function check_distros(){
 
     # FUNCIÓN NO TERMINADA
@@ -1138,8 +1143,8 @@ function check_distros(){
     # fi
 
     for i in "${distros[@]}";do
-        distro="${i^}"
-        if uname -a | grep "${i}" -i > /dev/null;then
+        if uname -a | grep -i "${i}" > /dev/null;then
+            distro="${i}"
             echo -e "${Blanco}${current_distro[${language}]} ${reset}${CPurpura}${distro}${punto}"
             return 0
         fi
@@ -1147,6 +1152,7 @@ function check_distros(){
 
     echo -e "${advertencia} ${CRojo}$(format_message_translate "${distros_no_testing[${language}]}" "${distro}")${punto}"
 }
+
 
 function detect_screen_resolution(){
 
