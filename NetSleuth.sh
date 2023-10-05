@@ -7,10 +7,6 @@
 # Usage........: sudo bash NetSleuth.sh
 # Bash Version.: 4.2 or later
 
-# !CHANGELOG:
-    # *Bugs:
-        # ? Detection distribution
-        # ? ? 
 #SHELLCHECK
 
 # FORMAT CHAT
@@ -140,6 +136,13 @@ function autodetect_language(){
     # Revisa si el idioma sacado es compatible con el scrpit
     for lang in "${!langs[@]}";do
         language="${system_language%%_*}" # Se filtra el primer "_". Haciendo que se quede con el idioma principal y no con el dialecto (en → English (se borra GB o US))
+
+        if [ "${language}" == "C" ] || [ "${language}" == "POSIX" ];then
+            language="en"
+            echo -e "\n${Blanco}${lang_success[${language}]}${reset}${Cian} ${system_language}${punto}"
+            return 0
+        fi
+
         if [ "${lang}" == "${language}" ];then
             if [ "skip" == "${1}" ];then
                 return 0
@@ -1039,7 +1042,7 @@ fi
 
 function check_necessary_name(){
     # FUNCIÓN NO TERMINADA
-    check_necessary_tools=("iw" "awk" "ip" "sed" "nslookup" "arping" "ethtool" "iwconfig" "lspci" "ping")
+    local check_necessary_tools=("iw" "awk" "ip" "sed" "nslookup" "arping" "ethtool" "iwconfig" "lspci" "ping" "rar")
     failed=()
     declare -A neccesary_tools=(
         ["en"]="Checking that you have the necessary tools..."
@@ -1063,7 +1066,7 @@ function check_necessary_name(){
 
     if [ "${#failed[@]}" -eq 0 ];then
         format_message_translate "${tools_ok[${language}]}"
-        unset failed check_necessary_tools
+        unset failed
         return 0
     else
         errorLog 6
@@ -1071,8 +1074,8 @@ function check_necessary_name(){
         return 1
     fi
 
-
 }
+
 
 function install_dependencies(){
     #arping is provided by package iputils-arping on Debian.
@@ -1130,7 +1133,6 @@ function check_root_permissions(){
 
 }
 
-language="es"
 function check_distros(){
 
     # FUNCIÓN NO TERMINADA
@@ -2218,7 +2220,7 @@ function check_dns(){
     local server="${1}"
 
     if nslookup -timeout=2 "google.com" "${server}" >/dev/null 2>&1;then
-        echo -e "${Blanco}$(format_message_translate "${message_DNS_success[${language}]}" "${server}") ${reset}"
+        echo -e "${Blanco}$(format_message_translate "${message_DNS_success[${language}]}" "${server}")${punto}"
         return 0
     else
         if ping -I "${interface}" -c 2 "${server}" >/dev/null 2>&1;then

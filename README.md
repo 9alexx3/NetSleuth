@@ -4,6 +4,9 @@
 ![NetSleuth logo](/images/Logo.PNG)
 
 
+---
+
+
 # ¿Qué es NetSleuth?
 
 
@@ -31,6 +34,14 @@ sudo bash NetSleuth.sh
 Actualmente existe una documentación muy básica desde este repositorios a través de archivos Markdown (.MD)
 
 [Ir al principio de la documentación.](/docs/First-steps.MD)
+
+
+# Distribuciones testeadas
+	[![Rocky Linux 8 & 9](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Rocky_Linux_logo.svg/4096px-Rocky_Linux_logo.svg.png)](https://rockylinux.org/)
+	[![Ubuntu Desktop &](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/UbuntuCoF.svg/2048px-UbuntuCoF.svg.png)](https://ubuntu.com/download/desktop)
+	[![Ubuntu Server &](https://upload.wikimedia.org/wikipedia/commons/1/16/Ubuntu_and_Ubuntu_Server_Icon.png)](https://ubuntu.com/download/server)
+	[![Parrot Security](https://upload.wikimedia.org/wikipedia/commons/4/45/Parrot_Logo.png)](https://parrotsec.org/)
+	[![Kali Linux](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kali-dragon-icon.svg/2048px-Kali-dragon-icon.svg.png)](kali.org)
 
 
 # ¿Por qué hiciste el script?
