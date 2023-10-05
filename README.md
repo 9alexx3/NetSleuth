@@ -37,11 +37,16 @@ Actualmente existe una documentación muy básica desde este repositorios a trav
 
 
 # Distribuciones testeadas
-	[![Rocky Linux 8 & 9](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Rocky_Linux_logo.svg/4096px-Rocky_Linux_logo.svg.png)](https://rockylinux.org/)
-	[![Ubuntu Desktop &](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/UbuntuCoF.svg/2048px-UbuntuCoF.svg.png)](https://ubuntu.com/download/desktop)
-	[![Ubuntu Server &](https://upload.wikimedia.org/wikipedia/commons/1/16/Ubuntu_and_Ubuntu_Server_Icon.png)](https://ubuntu.com/download/server)
-	[![Parrot Security](https://upload.wikimedia.org/wikipedia/commons/4/45/Parrot_Logo.png)](https://parrotsec.org/)
-	[![Kali Linux](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kali-dragon-icon.svg/2048px-Kali-dragon-icon.svg.png)](kali.org)
+* [<img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Parrot_Logo.png" alt="Imagen 1" width="100" height="100">](URL_del_Enlace_1) Texto 1
+* [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Rocky_Linux_logo.svg/4096px-Rocky_Linux_logo.svg.pn" alt="Imagen 2" width="100" height="100">](URL_del_Enlace_2) Texto 2
+* [<img src="URL_de_la_Imagen_3" alt="Imagen 3" width="100" height="100">](URL_del_Enlace_3) Texto 3
+
+
+[![Rocky Linux 8 & 9](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Rocky_Linux_logo.svg/4096px-Rocky_Linux_logo.svg.png)](https://rockylinux.org/)
+[![Ubuntu Desktop &](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/UbuntuCoF.svg/2048px-UbuntuCoF.svg.png)](https://ubuntu.com/download/desktop)
+[![Ubuntu Server &](https://upload.wikimedia.org/wikipedia/commons/1/16/Ubuntu_and_Ubuntu_Server_Icon.png)](https://ubuntu.com/download/server)
+[![Parrot Security](https://upload.wikimedia.org/wikipedia/commons/4/45/Parrot_Logo.png)](https://parrotsec.org/)
+[![Kali Linux](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kali-dragon-icon.svg/2048px-Kali-dragon-icon.svg.png)](kali.org)
 
 
 # ¿Por qué hiciste el script?
