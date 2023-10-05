@@ -37,7 +37,7 @@ Actualmente existe una documentación muy básica desde este repositorios a trav
 
 
 # Distribuciones testeadas
-* [<img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Parrot_Logo.png" alt="Imagen 1" width="100" height="100">](URL_del_Enlace_1) Texto 1
+* [![Parrot Security](https://upload.wikimedia.org/wikipedia/commons/4/45/Parrot_Logo.png)](https://parrotsec.org/)
 * [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Rocky_Linux_logo.svg/4096px-Rocky_Linux_logo.svg.pn" alt="Imagen 2" width="100" height="100">](URL_del_Enlace_2) Texto 2
 * [<img src="URL_de_la_Imagen_3" alt="Imagen 3" width="100" height="100">](URL_del_Enlace_3) Texto 3
 
