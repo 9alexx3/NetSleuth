@@ -37,11 +37,11 @@ Actualmente existe una documentación muy básica desde este repositorios a trav
 
 
 # Distribuciones testeadas
-• <a href="https://kali.org"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kali-dragon-icon.svg/2048px-Kali-dragon-icon.svg.png" width="30" height="30"> Kali Linux</a><br>
-• <a href="https://rockylinux.org/"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Rocky_Linux_logo.svg/4096px-Rocky_Linux_logo.svg.png" width="30" height="30"> Kali Linux</a><br>
-• <a href="https://ubuntu.com/download/desktop"> <img src="https://banner2.cleanpng.com/20180515/fow/kisspng-ubuntu-server-edition-logo-operating-systems-5afb01899cdd14.2282452715263993696425.jpg" width="30" height="30"> Ubuntu Desktop</a><br>
-• <a href="https://ubuntu.com/download/server"> <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Ubuntu_and_Ubuntu_Server_Icon.png" width="30" height="30"> Ubuntu Server</a><br>
 • <a href="https://parrotsec.org/"> <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Parrot_Logo.png" width="30" height="30"> Parrot Security</a><br>
+• <a href="https://kali.org"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kali-dragon-icon.svg/2048px-Kali-dragon-icon.svg.png" width="30" height="30"> Kali Linux</a><br>
+• <a href="https://rockylinux.org/"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Rocky_Linux_logo.svg/4096px-Rocky_Linux_logo.svg.png" width="30" height="30"> Rocky Linux</a><br>
+• <a href="https://ubuntu.com/download/desktop"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/UbuntuCoF.svg/2048px-UbuntuCoF.svg.png" width="30" height="30"> Ubuntu Desktop</a><br>
+• <a href="https://ubuntu.com/download/server"> <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Ubuntu_and_Ubuntu_Server_Icon.png" width="30" height="30"> Ubuntu Server</a><br>
 
 
 # ¿Por qué hiciste el script?
