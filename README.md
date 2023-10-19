@@ -1,12 +1,19 @@
 # NetSleuth
 
-<img align="center" src="/images/Logo.PNG" alt="Logo NetSleuth" width=300 height=300>
+<div align="center">
+	<br />
+	<p>
+		<img src="/images/Logo.PNG" width="546" alt="discord.js" />
+	</p>
+	<br />
+	<p>
+		<a href=""><img src="https://img.shields.io/badge/bash-4.2%2B-blue.svg?style=flat-square&colorA=273133&colorB=purple" alt="" /></a>
+    <a href=""><img src="https://img.shields.io/badge/version-11.21-blue.svg?style=flat-square&colorA=273133&colorB=0093ee" alt="" /></a>
+    <a href=""><img src="https://img.shields.io/badge/license-GPL%20v3%2B-blue.svg?style=flat-square&colorA=273133&colorB=00db00" alt="" /></a>
+    <a href="https://discord.gg/wv35VBJrHM"><img src="https://img.shields.io/discord/1164646485372178504.svg?style=flat-square&colorA=273133&colorB=23a559&logo=discord&label=Server" alt="Discord" /></a>
+	</p>
 
-[![Version-shield]](https://raw.githubusercontent.com/9alexx3/NetSleuth/main/CHANGELOG.md) [![Bash4.2-shield]](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html) [![License-shield]](https://raw.githubusercontent.com/9alexx3/NetSleuth/main/LICENSE.md) [![Discord-shield]](https://discord.gg/wv35VBJrHM)
-
-
----
-
+</div>
 
 # ¿Qué es NetSleuth?
 
@@ -65,11 +72,3 @@ La respuesta es un gran **SÍ**. Yo solo no puedo aborcar todo el proceso de des
 No puedo abordar por completo el proceso de desarrollo y pruebas debido a limitaciones de recursos y conocimientos. Mi hardware es limitado, lo que afecta mi capacidad para detectar errores. Además, no tengo conocimiento de las diversas distribuciones y las mejores prácticas. El idioma también es una limitación.
 
 Existe un [archivo](/TODO.MD) el cual es una lista con todo lo que se tiene planeado (de momento) con el script y su progresión. Si tienes alguna sugerencia, ¡no te la quedes, **compartela**!
-
-
-[comment]: <> (VARIABLE DEFINITIONS OF SHIELDS)
-
-[Version-shield]: https://img.shields.io/badge/version-11.21-blue.svg?style=flat-square&colorA=273133&colorB=0093ee "Latest version"
-[Bash4.2-shield]: https://img.shields.io/badge/bash-4.2%2B-blue.svg?style=flat-square&colorA=273133&colorB=purple "Bash 4.2 or later"
-[License-shield]: https://img.shields.io/badge/license-GPL%20v3%2B-blue.svg?style=flat-square&colorA=273133&colorB=00db00 "GPL v3+"
-[Discord-shield]: https://img.shields.io/discord/1164646485372178504.svg?style=flat-square&colorA=273133&colorB=CBA317&logo=discord&label=Server
