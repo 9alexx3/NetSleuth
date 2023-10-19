@@ -3,7 +3,7 @@
 <div align="center">
 	<br />
 	<p>
-		<img src="/images/Logo.PNG" width="546" alt="discord.js" />
+		<img src="/images/Logo.PNG" width="400" alt="discord.js" />
 	</p>
 	<br />
 	<p>
