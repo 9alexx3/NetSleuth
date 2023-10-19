@@ -1135,24 +1135,85 @@ function check_root_permissions(){
 
 function check_distros(){
 
-    # FUNCIÓN NO TERMINADA
+    distros=("Kali" "Ubuntu" "Parrot")
+    known_incompatible_distros=("Microsoft")
+    local extra_os_info=""
+    local extra_os_info2=""
 
-    declare distros=("Kali" "Ubuntu" "Parrot")
-    
-    # if [ "${OSTYPE}" != "linux-gnu" ];then
-    #     echo -e "${distros_no_testing[${language}]}"
-    #     return 0
-    # fi
+    for i in "${known_incompatible_distros[@]}";do
+        if uname -a | grep -i "${i}" > /dev/null;then
+            distro="${i}"
+            break
+        fi
+    done
 
     for i in "${distros[@]}";do
         if uname -a | grep -i "${i}" > /dev/null;then
             distro="${i}"
-            echo -e "${Blanco}${current_distro[${language}]} ${reset}${CPurpura}${distro}${punto}"
-            return 0
+            break
         fi
     done
 
-    echo -e "${advertencia} ${CRojo}$(format_message_translate "${distros_no_testing[${language}]}" "${distro}")${punto}"
+	case "${OSTYPE}" in
+		solaris*)
+			distro="Solaris"
+		;;
+		darwin*)
+			distro="Mac OSX"
+		;;
+		bsd*)
+			distro="FreeBSD"
+		;;
+	esac
+
+    if [ -z "${distro}" ];then
+        if [ -f "/etc/centos-release" ];then
+            distro="CentOS"
+        elif [ -f "/etc/fedora-release" ];then
+            distro="Fedora"
+        elif [ -f "/etc/gentoo-release" ];then
+            distro="Gentoo"
+        elif [ -f "/etc/openmandriva-release" ];then
+            distro="OpenMandriva"
+        elif [ -f "/etc/redhat-release" ];then
+            distro="Red Hat"
+        elif [ -f "/etc/SuSE-release" ];then
+            distro="SuSE"
+        elif [ -f "/etc/debian_version" ];then
+            distro="Debian"
+            if [ -f "/etc/os-release" ];then
+                extra_os_info="$(grep "PRETTY_NAME" < "/etc/os-release")"
+                if [[ "${extra_os_info}" =~ [Rr]aspbian ]];then
+                    distro="Raspbian"
+                elif [[ "${extra_os_info}" =~ [Dd]ebian ]] && [[ "$(uname -a)" =~ [Rr]aspberry ]];then
+                    distro="Raspberry Pi OS"
+                fi
+            fi
+        fi
+
+        if [ "${distro}" = "Arch" ];then
+            if [ -f "/etc/os-release" ];then
+                extra_os_info="$(grep "PRETTY_NAME" < "/etc/os-release")"
+                extra_os_info2="$(grep -i "blackarch" < "/etc/issue")"
+                if [[ "${extra_os_info}" =~ [Bb]lack[Aa]rch ]] || [[ "${extra_os_info2}" =~ [Bb]lack[Aa]rch ]];then
+                    distro="BlackArch"
+                fi
+            fi
+        elif [ "${distro}" = "Ubuntu" ];then
+            if [ -f "/etc/os-release" ];then
+                extra_os_info="$(grep "PRETTY_NAME" < "/etc/os-release")"
+                if [[ "${extra_os_info}" =~ [Mm]int ]];then
+                    distro="Mint"
+                fi
+            fi
+        fi
+    fi
+
+    if [ -z "${distro}" ];then
+        echo -e "${advertencia} ${CRojo}$(format_message_translate "${distros_no_testing[${language}]}" "${distro}")${punto}"
+    else
+        echo -e "${Blanco}${current_distro[${language}]} ${reset}${CPurpura}${distro}${punto}"
+    fi
 }
 
 
@@ -1322,6 +1383,7 @@ function select_interface(){
         fi
     done
 }
+
 
 function info_interface_supported_bands(){
     
@@ -2696,7 +2758,7 @@ function create_connection_nmcli(){
             fi
 
 
-            if [ "${security}" == "--" ]; then
+            if [ "${security}" == "--" ];then
                 encryption=""
             else
                 type_password "${ssid}" "${bssid}"
