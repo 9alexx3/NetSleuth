@@ -1,5 +1,12 @@
 # NetSleuth
 
+<img align="center" src="/images/Logo.PNG" alt="Logo NetSleuth" width=300 height=300>
+
+[![Version-shield]](https://raw.githubusercontent.com/9alexx3/NetSleuth/main/CHANGELOG.md) [![Bash4.2-shield]](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html) [![License-shield]](https://raw.githubusercontent.com/9alexx3/NetSleuth/main/LICENSE.md) [![Discord-shield]](https://discord.gg/wv35VBJrHM)
+
+
+---
+
 
 # ¿Qué es NetSleuth?
 
@@ -66,7 +73,3 @@ Existe un [archivo](/TODO.MD) el cual es una lista con todo lo que se tiene plan
 [Bash4.2-shield]: https://img.shields.io/badge/bash-4.2%2B-blue.svg?style=flat-square&colorA=273133&colorB=purple "Bash 4.2 or later"
 [License-shield]: https://img.shields.io/badge/license-GPL%20v3%2B-blue.svg?style=flat-square&colorA=273133&colorB=00db00 "GPL v3+"
 [Discord-shield]: https://img.shields.io/discord/1164646485372178504.svg?style=flat-square&colorA=273133&colorB=CBA317&logo=discord&label=Server
-
-
-
-[![Version-shield]](https://raw.githubusercontent.com/9alexx3/NetSleuth/main/CHANGELOG.md) [![Bash4.2-shield]](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html) [![License-shield]](https://raw.githubusercontent.com/9alexx3/NetSleuth/main/LICENSE.md) [![Discord-shield]](https://discord.gg/wv35VBJrHM)
