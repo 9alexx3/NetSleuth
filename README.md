@@ -1,9 +1,6 @@
 # NetSleuth
 
-# !!!!!!!!!!!!!!!!    FALTA PONER LAS VERSIONES EN DISTRIBUCIONES TESTEADAS !!!!!!!!!!!!!!!!!!!!
-
-![NetSleuth logo](/images/Logo.PNG)
-
+<img src="/images/Logo.PNG" alt="LOGO" width="100" height="100">
 
 ---
 
