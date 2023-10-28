@@ -8,9 +8,9 @@
 	<br />
 	<p>
 		<a href=""><img src="https://img.shields.io/badge/bash-4.2%2B-blue.svg?style=flat-square&colorA=273133&colorB=purple" alt="" /></a>
-    <a href=""><img src="https://img.shields.io/badge/version-11.21-blue.svg?style=flat-square&colorA=273133&colorB=0093ee" alt="" /></a>
-    <a href=""><img src="https://img.shields.io/badge/license-GPL%20v3%2B-blue.svg?style=flat-square&colorA=273133&colorB=00db00" alt="" /></a>
-    <a href="https://discord.gg/wv35VBJrHM"><img src="https://img.shields.io/discord/1164646485372178504.svg?style=flat-square&colorA=273133&colorB=23a559&logo=discord&label=Server" alt="Discord" /></a>
+		<a href=""><img src="https://img.shields.io/badge/version-1.0-blue.svg?style=flat-square&colorA=273133&colorB=0093ee" alt="" /></a>
+		<a href=""><img src="https://img.shields.io/badge/license-GPL%20v3%2B-blue.svg?style=flat-square&colorA=273133&colorB=00db00" alt="" /></a>
+    	<a href="https://discord.gg/wv35VBJrHM"><img src="https://img.shields.io/discord/1164646485372178504.svg?style=flat-square&colorA=273133&colorB=23a559&logo=discord&label=Server" alt="Discord" /></a>
 	</p>
 
 </div>
