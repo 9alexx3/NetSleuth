@@ -46,6 +46,8 @@ Actualmente existe una documentación muy básica desde este repositorios a trav
 
 [Ir al principio de la documentación.](/docs/First-steps.MD)
 
+La pestaña "Wiki" de este repositorio es la misma que la documentación pero por comodidad, se recomienda esta opción.
+
 
 # Distribuciones testeadas
 
