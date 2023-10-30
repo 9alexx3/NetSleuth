@@ -17,4 +17,4 @@ Los menús principales son los siguientes, el cual cuenta con una pequeña expli
 
 
 
-[Regrear al seleccionador de interfaces.](/docs/Select-interface.MD)
+[Regresar al seleccionador de interfaces.](/docs/Select-interface.MD)

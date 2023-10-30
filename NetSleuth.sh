@@ -3,7 +3,7 @@
 # Title........: NetSleuth.sh
 # Description..: This is a multi-use bash script for Linux systems to change/repair/show networks configuration.
 # Author.......: 9alexx3 aka variant
-# Version......: 0.01 -> Alpha 1
+# Version......: 1
 # Usage........: sudo bash NetSleuth.sh
 # Bash Version.: 4.2 or later
 
@@ -38,7 +38,7 @@
 
 author="9alexx3"
 script_name="NetSleuth"
-version="v. Alpha"
+version="v. 1"
 
 
 function control_c(){
@@ -106,7 +106,7 @@ function banner(){
     \t\t\t\t\t\t\t.-.|  /
     \t\t${CBlanco}${script_name} (${version})${reset}${Blanco}\t\t\t \_|_/,
     \t\t\t\t\t\t\t / | \ 
-    \t\t\t${reset}${CPurpura}by ${author}${reset}${Blanco}\t\t\t'-' ._\ ${reset}
+    \t\t${reset}${CPurpura}     by ${author}${reset}${Blanco}\t\t\t\t'-' ._\ ${reset}
 
 
     \t\t\t              ${Cian}/\\
@@ -127,7 +127,7 @@ function banner(){
     clear
     tput cnorm
 
-    # 80x20 resolución mínima
+    # ! 80x24 minimum resolution
 }
 
 function autodetect_language(){
@@ -809,6 +809,12 @@ function translations_handler(){
         ["ca"]="Eixint del script..."
     )
 
+    declare -gA message_no_duplicateIP=(
+        ["en"]="No duplicate IP addresses have been found on this interface"
+        ["es"]="No se han encontrado direcciones IPv4 duplicadas en esta interfaz"
+        ["ca"]="No s'han trobat adreces IPv4 duplicades en esta interfície"
+    )
+
     declare -gA check_ethernet_wifi=(
         ["en"]="[Auto-Detection]${reset}${Blanco} The selected interface ${reset}${Negro}(${reset}${Azul}%s${reset}${Negro})${reset}${Blanco}${reset}${Blanco} is${reset} ${CVerde}%s"
         ["es"]="[Autodetección]${reset}${Blanco} La interfaz seleccionada ${reset}${Negro}(${reset}${Azul}%s${reset}${Negro})${reset}${Blanco}${reset}${Blanco} es${reset} ${CVerde}%s"
@@ -998,9 +1004,9 @@ function translations_handler(){
     )
 
     declare -gA message_new_cidr=(
-        ["en"]="Teclege el número corresponent al CIDR de la teua nova màscara de xarxa (per defecte és 24)"
+        ["en"]="Enter the number corresponding to the CIDR of your new network mask (default is 24)"
         ["es"]="Teclee el número correspondiente al CIDR de tu nueva máscara de red (por defecto es 24)"
-        ["ca"]="Enter the number corresponding to the CIDR of your new network mask (default is 24)"
+        ["ca"]="Teclege el número corresponent al CIDR de la teua nova màscara de xarxa (per defecte és 24)"
     )
 
     declare -gA message_no_conn_networkmanager=(
@@ -1599,7 +1605,7 @@ function get_gateway(){
 
     gateway=""
 
-    if command -v nmcli >/dev/null 2>&1 && [ -z "${gateway}" ];then
+    if command -v nmcli >/dev/null 2>&1;then
         gateway=$(nmcli device show "${interface}" 2>/dev/null | awk '/IP4.GATEWAY/ {print $2}')
         return 0
     fi
@@ -1609,7 +1615,7 @@ function get_gateway(){
         return 0
     fi
 
-    if command -v route >/dev/null 2>&1 && [ -z "${gateway}" ];then
+    if command -v route >/dev/null 2>&1;then
         gateway=$(route -n 2>/dev/null | grep "^0.0.0.0" | grep "${interface}" | awk '{print $2}')
         return 0
     fi
@@ -2272,6 +2278,8 @@ function check_if_duplicate_ip(){
             for device in "${MACs_from_duplicate_IP[@]}";do
                 print_table "${width_title}" "${width_value}" "$(center_text "${IPv4}" "${width_title}")" "$(center_text "${device}" "${width_value}")"
             done
+        else
+            echo -e "\n${Blanco}${message_no_duplicateIP[${language}]}${punto}\n"
         fi
     fi
    
@@ -2555,36 +2563,80 @@ function no_network_services_activate(){
 
 new_dns=()
 function input_valid_ipv4(){
-    
-    local var_name="${1}"
-    local type="${2}"
-    local option="${3}"
-    local ip_input
-    while true;do
-        echo -e "\n${CPurpura}$(format_message_translate "${message_input_IPv4[${language}]}" "${var_name}")${reset}"
-        if [ "${option}" == "skip" ];then  
-            echo -e "${CPurpura}${message_stop_skip[${language}]} ${reset}${CAzul}'${reset}${CRojo}STOP${reset}${CAzul}'${punto}"  
-        fi
-        read -rp " ·> " ip_input
 
-        if [ "${ip_input^^}" == "STOP" ];then
+    local var_name="${1}" # ? new_ip | new_gateway | new_dns
+    local type="${2}" # ? Private, public or none
+    local option="${3}" # ? skip or force
+    local ip_input
+
+    case "${var_name}" in
+        "new_ip")
+            declare -A message=(
+                ["en"]="system IP"
+                ["es"]="IP del sistema"
+                ["ca"]="IP del sistema"
+            )
+        ;;
+
+        "new_dns")
+            declare -A message=(
+                ["en"]="DNS server"
+                ["es"]="servidor DNS"
+                ["ca"]="servidor DNS"
+            )
+        ;;
+
+        "new_gateway")
+            declare -A message=(
+                ["en"]="gateway"
+                ["es"]="puerta de enlace"
+                ["ca"]="porta d'enllaç"
+            )
+        ;;
+        *)
+            echo -e "INPUT VALID IPV4 ERROR ON CASE"
+        ;;
+    esac
+
+    while true;do
+        echo -e "\n${CPurpura}$(format_message_translate "${message_input_IPv4[${language}]}" "${message[${language}]}")${punto}"
+        if [ "${option}" == "skip" ];then
+            echo -e "${CPurpura}${message_stop_skip[${language}]} ${reset}${CRojo}STOP${reset}"
+        fi
+
+        read -rp " ·> " ip_input
+        
+        if [ "${option}" == "skip" ] || [ "${#new_dns[@]}" -gt 0 ] && [ "${ip_input^^}" == "STOP" ];then
             return 0
-        elif check_validate_IPv4 "${ip_input}" "${type}";then
-            if [ "${var_name}" == "new_dns" ] && [ "${option}" != "skip" ];then
-                declare -A message_validate_dns=(
-                    ["en"]="The DNS server is being verified; if it's not suitable, the IP will be discarded"
-                    ["es"]="Se está verificando el servidor DNS; si no es apto, se descartará la IP"
-                    ["ca"]="S'està verificant el servidor DNS; si no és apte, es descartarà la IP"
-                )
-                echo -e "${Amarillo}${message_validate_dns[${language}]}${punto}"
-                if check_dns "${ip_input}";then
-                    new_dns+=("${ip_input}")
-                fi
-            elif [ "${var_name}" != "new_dns" ];then
+        fi
+
+        if check_validate_IPv4 "${ip_input}" "${type}";then
+            if [ "${var_name}" != "new_dns" ];then # new_ip && new_gateway
                 declare -g "${var_name}=${ip_input}"
                 return 0
             else
-                new_dns+=("${ip_input}")
+                declare -A message_stops_validate_dns=(
+                    ["en"]="You can add as many backup DNS servers as you like${punto}${CPurpura} Once entered, type ${reset}${CRojo}STOP${reset}"
+                    ["es"]="Puedes añadir tantos servidores DNS de respaldo como desees${punto}${CPurpura} Una vez introducidos, escribe ${reset}${CRojo}STOP${reset}"
+                    ["ca"]="Pots afegir tants servidors DNS de suport com desitges${punto}${CPurpura} Una vegada introduïts, escriu ${reset}${CRojo}STOP${reset}"
+                )
+                
+                echo -e "\n${CPurpura}${message_stops_validate_dns[${language}]}"
+                if [ "${option}" != "skip" ];then
+                    if ping -c 2 "1.1.1.1" >/dev/null 2>&1;then
+                        declare -A message_validate_dns=(
+                            ["en"]="The DNS server is being verified; if it's not suitable, the IP will be discarded"
+                            ["es"]="Se está verificando el servidor DNS; si no es apto, se descartará la IP"
+                            ["ca"]="S'està verificant el servidor DNS; si no és apte, es descartarà la IP"
+                        )
+                        echo -e "${Amarillo}${message_validate_dns[${language}]}${punto}"
+                        if check_dns "${ip_input}";then
+                            new_dns+=("${ip_input}")
+                        fi
+                    else
+                        new_dns+=("${ip_input}")
+                    fi
+                fi
             fi
         fi
     done
@@ -2607,10 +2659,10 @@ function input_cidr(){
 }
 
 function confirm_action(){
-    local message="${1}"
+    local action="${1}"
 
     while true;do
-        echo -e "\n${message} ${yes_no}"
+        echo -e "\n${action} ${yes_no}"
         read -rp " ·> " answer
         case "${answer^^}" in
             "YES"|"Y")
@@ -2907,21 +2959,50 @@ function configure_network_manager(){
     local time="${2}" # ? permanent | temporary
 
     if [ "${type}" == "manual" ];then
+
         input_valid_ipv4 "new_ip" "private" "skip"
         input_cidr
         input_valid_ipv4 "new_gateway" "private" "skip"
         input_valid_ipv4 "new_dns" "none" "force"
 
         if [ "${time}" == "permanent" ];then
-            nmcli con mod "${conn_networkmanager}" ipv4.address "${new_ip}/${new_cidr}"
-            nmcli con mod "${conn_networkmanager}" ipv4.gateway "${new_gateway}"
+            if [[ -n "${new_ip}" ]] && [[ -n "${new_cidr}" ]];then
+                nmcli con mod "${conn_networkmanager}" ipv4.address "${new_ip}/${new_cidr}"
+            elif [[ -n "${new_ip}" ]] && [[ -z "${new_cidr}" ]];then
+                get_ipv4 "${interface}"
+                get_cidr "${IPv4}"
+                nmcli con mod "${conn_networkmanager}" ipv4.address "${new_ip}/${cidr}"
+            elif [[ -n "${new_cidr}" ]] && [[ -z "${new_ip}" ]];then
+                get_ipv4 "${interface}"
+                nmcli con mod "${conn_networkmanager}" ipv4.address "${IPv4}/${new_cidr}"
+            fi
+
+            if [ -n "${new_gateway}" ];then
+                nmcli con mod "${conn_networkmanager}" ipv4.gateway "${new_gateway}"
+            fi
+
+            if [ "${#new_dns[@]}" -gt 0 ];then
+                nmcli con mod "${conn_networkmanager}" ipv4.dns "${new_dns[*]}"
+            fi
+            
             nmcli con mod "${conn_networkmanager}" ipv4.method "static"
-            nmcli con mod "${conn_networkmanager}" ipv4.dns "${new_dns[*]}"
+            
         elif [ "${time}" == "temporary" ];then
-            nmcli con mod "${conn_networkmanager}" --temporary ipv4.address "${new_ip}/${new_cidr}"
-            nmcli con mod "${conn_networkmanager}" --temporary ipv4.gateway "${new_gateway}"
+
+            if [[ -n "${new_ip}" ]] && [[ -n "${new_cidr}" ]];then
+                nmcli con mod "${conn_networkmanager}" --temporary ipv4.address "${new_ip}/${new_cidr}"
+            fi
+
+            if [ -n "${new_gateway}" ];then
+                nmcli con mod "${conn_networkmanager}" --temporary ipv4.gateway "${new_gateway}"
+            fi
+
+            if [ "${#new_dns[@]}" -gt 0 ];then
+                nmcli con mod "${conn_networkmanager}" --temporary ipv4.dns "${new_dns[*]}"
+            fi
+            
             nmcli con mod "${conn_networkmanager}" --temporary ipv4.method "static"
-            nmcli con mod "${conn_networkmanager}" --temporary ipv4.dns "${new_dns[*]}"
+            
         fi
 
     elif [ "${type}" == "dhcp" ];then
