@@ -1,5 +1,23 @@
 # NetSleuth
 
+<div align="center">
+	<br />
+	<p>
+		<img src="/images/Logo.PNG" width="350" alt="discord.js" />
+	</p>
+	<br />
+	<p>
+		<a href=""><img src="https://img.shields.io/badge/bash-4.2%2B-blue.svg?style=flat-square&colorA=273133&colorB=purple" alt="" /></a>
+		<a href=""><img src="https://img.shields.io/badge/version-1.0-blue.svg?style=flat-square&colorA=273133&colorB=0093ee" alt="" /></a>
+		<a href=""><img src="https://img.shields.io/badge/license-GPL%20v3%2B-blue.svg?style=flat-square&colorA=273133&colorB=00db00" alt="" /></a>
+    	<a href="https://discord.gg/wv35VBJrHM"><img src="https://img.shields.io/discord/1164646485372178504.svg?style=flat-square&colorA=273133&colorB=23a559&logo=discord&label=Server" alt="Discord" /></a>
+	</p>
+</div>
+
+
+---
+
+
 # ¿Qué es NetSleuth?
 
 
@@ -27,6 +45,21 @@ sudo bash NetSleuth.sh
 Actualmente existe una documentación muy básica desde este repositorios a través de archivos Markdown (.MD)
 
 [Ir al principio de la documentación.](/docs/First-steps.MD)
+
+
+# Distribuciones testeadas
+
+• <a href="https://parrotsec.org/"> <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Parrot_Logo.png" width="30" height="30"> Parrot Security 5.3</a><br>
+• <a href="https://kali.org"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kali-dragon-icon.svg/2048px-Kali-dragon-icon.svg.png" width="30" height="30"> Kali Linux 2023.3</a><br>
+• <a href="https://rockylinux.org/"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Rocky_Linux_logo.svg/4096px-Rocky_Linux_logo.svg.png" width="30" height="30"> Rocky Linux 8 & 9</a><br>
+• <a href="https://ubuntu.com/download/desktop"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/UbuntuCoF.svg/2048px-UbuntuCoF.svg.png" width="30" height="30"> Ubuntu Desktop 10.04 & 23.04 LTS</a><br>
+• <a href="https://ubuntu.com/download/server"> <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Ubuntu_and_Ubuntu_Server_Icon.png" width="30" height="30"> Ubuntu Server 10.04 & 23.04 LTS</a><br>
+• <a href="https://www.debian.org"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Openlogo-debianV2.svg/410px-Openlogo-debianV2.svg.png" width="30" height="30"> Debian 9, 10 & 12</a><br>
+
+
+# Distribuciones incompatibles
+• <a href="https://www.microsoft.com/en-us/windows/?r=1"> <img src="https://seeklogo.com/images/W/windows-11-icon-logo-6C39629E45-seeklogo.com.png" width="30" height="30"> Windows</a><br>
+• <a href="https://www.apple.com/es/mac/"> <img src="https://restoreprivacy.com/wp-content/uploads/2022/06/best-VPN-for-mac-OS.png" width="30" height="30"> Mac OS</a><br>
 
 
 # ¿Por qué hiciste el script?
